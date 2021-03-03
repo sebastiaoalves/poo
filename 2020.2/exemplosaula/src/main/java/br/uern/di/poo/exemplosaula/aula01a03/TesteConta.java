@@ -23,27 +23,32 @@ public class TesteConta {
         //contaCorrente.nomeTitular = "Sebastião";
         //contaCorrente.saldo = 150;
         
-        System.out.println("Nome do titular da conta corrente: " + contaCorrente.nomeTitular);
-        System.out.println("Saldo da conta corrente: " + contaCorrente.saldo);
+        System.out.println("Nome do titular da conta corrente: " + contaCorrente.getNomeTitular());
+        System.out.println("Saldo da conta corrente: " + contaCorrente.getSaldo());
         
         Conta contaPoupanca = new Conta();
         
         //contaPoupanca.nomeTitular = "Cicilia";
         //contaPoupanca.saldo = entrada.nextDouble();
         
-        System.out.println("Nome do titular da conta poupanca: " + contaPoupanca.nomeTitular);
-        System.out.println("Saldo da conta poupança: " + contaPoupanca.saldo);
+        System.out.println("Nome do titular da conta poupanca: " + contaPoupanca.getNomeTitular());
+        System.out.println("Saldo da conta poupança: " + contaPoupanca.getSaldo());
         
         Conta contaInvestimento = new Conta("Max");
         
-        System.out.println("Nome do titular da conta investimento: " + contaInvestimento.nomeTitular);
-        System.out.println("Saldo da conta investimento: " + contaInvestimento.saldo);
+        System.out.println("Nome do titular da conta investimento: " + contaInvestimento.getNomeTitular());
+        System.out.println("Saldo da conta investimento: " + contaInvestimento.getSaldo());
         
         double novoSaldo = contaCorrente.realizaDeposito(50);
         
-        System.out.println("Saldo da conta de " + contaCorrente.nomeTitular + 
-                " agora é de R$ " + contaCorrente.saldo);
+        System.out.println("Saldo da conta de " + contaInvestimento.getNomeTitular() + 
+                " agora é de R$ " + contaInvestimento.getSaldo());
+        
+        //contaInvestimento.setNomeTitular("Henrique");
+        //contaInvestimento.setSaldo(100);
      
+        System.out.println("Saldo da conta de " + contaInvestimento.getNomeTitular() + 
+                " agora é de R$ " + contaInvestimento.getSaldo());
         
     }
 }

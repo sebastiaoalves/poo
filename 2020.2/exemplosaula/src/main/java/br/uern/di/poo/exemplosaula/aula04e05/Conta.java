@@ -1,4 +1,4 @@
-package br.uern.di.poo.exemplosaula.aula01a03;
+package br.uern.di.poo.exemplosaula.aula04e05;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -36,13 +36,34 @@ public class Conta {
      * @return O saldo após o depósito.
      */
     public double realizaDeposito(double oValorASerDepositado){
-        this.saldo += oValorASerDepositado;
-        adicionaCashBack(oValorASerDepositado);
+        if(oValorASerDepositado > 0){
+            this.saldo += oValorASerDepositado;
+            adicionaCashBack(oValorASerDepositado);
+        }else{
+            System.err.println("Erro ao realizar depósito: valor a ser depositado é negativo");
+        }
+        return this.saldo;
+    }
+    
+    public double realizaSaque(double oValorASerSacado){
+        if(oValorASerSacado > 0){
+            if(oValorASerSacado <= this.saldo){
+                this.saldo -= oValorASerSacado;  // this.saldo = this.saldo - oValorASerSacado
+            }else{
+                System.err.println("Saque não realizado! Não há saldo o suficiente!");
+            }
+        }else{
+            System.err.println("Erro ao realizar saque: valor a ser sacado é negativo");
+        }
+
         return this.saldo;
     }
     
     private void adicionaCashBack(double oValor){
-        this.saldo += oValor * 0.05;
+        if( oValor < 100.0 )
+            this.saldo += oValor * 0.05;
+        else
+            this.saldo += 5.0;
     }
     
     public String getNomeTitular(){
@@ -60,4 +81,7 @@ public class Conta {
 //    public void setSaldo(double saldo){
 //        this.saldo = saldo;
 //    }
+    
+    
+    
 }
