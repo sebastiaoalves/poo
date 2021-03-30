@@ -1,0 +1,44 @@
+1
+Sebastião
+10
+Filme massa demais
+
+1
+Hater online
+3
+péssimo
+
+1
+Silvio Santos
+8
+É um bom filme, é um bom filme
+
+2
+Marvelete
+10
+Filme massa demais
+
+2
+Hater online
+2
+horroroso
+
+2
+Silvio Santos
+7
+É um bom filme, é um bom filme
+        
+3
+DCLete
+9
+Filme massa demais, mas o Snyder cut é melhor
+
+3
+Hater online
+1
+horroroso
+
+3
+Silvio Santos
+6
+É um bom filme, é um bom filme

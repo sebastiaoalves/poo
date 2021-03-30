@@ -1,0 +1,18 @@
+1 
+Avatar
+Aventura
+Um centro espírita de gigantes azuis
+avatar.jpeg
+
+2
+Vingadores Ultimato
+Ficção
+Um monte de heróis juntos. O Homem de Ferro morre no final
+vingadores.jpeg
+
+3
+Liga da Justiça
+Ficção
+A mesma coisa que vingadores, só que pior. Dessa vez um herói ressucita
+liga.jpeg
+
