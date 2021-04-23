@@ -1,0 +1,300 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.uern.di.poo.atividadesavaliativas.prova1.atividade2;
+
+import java.awt.Color;
+import java.net.URL;
+import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author sebastiao
+ */
+public class Jogo extends javax.swing.JFrame {
+
+    /**
+     * Creates new form Jogo
+     */
+    
+    private Jogador jogador1;
+    private Jogador jogador2;
+    
+    private CartaBaralho baralho [ ];
+    
+    JButton cartasJogador1[], cartasJogador2[];
+    
+
+    public Jogo() {
+        
+        // Questão 5- a) já está na interface
+        
+        // Questão 5- b)
+        // Criando os jogadores
+        this.baralho= CartaBaralho.geraBaralho(); // Gerando o baralho
+        CartaBaralho maoJogador1[] = new CartaBaralho[Jogador.cartasNoJogo];
+        CartaBaralho maoJogador2[] = new CartaBaralho[Jogador.cartasNoJogo];
+        this.jogador1 = new Jogador("A Casa", maoJogador1);
+        this.jogador2 = new Jogador("O Jogador", maoJogador2);
+        geraNovaMao();
+   
+        initComponents();
+        
+        // Questão 5- c)
+        
+        cartasJogador1 = new JButton[] {jButton1, jButton2, jButton3, jButton4, jButton5};
+        cartasJogador2 = new JButton[] {jButton6, jButton7, jButton8, jButton9, jButton10};
+        atualizaCartas();
+        
+        for(var b : cartasJogador1)
+            b.setText("");
+        for(var b : cartasJogador2)
+            b.setText("");
+         
+    }
+    
+    public void geraNovaMao(){
+        Random geradorAleatorio = new Random();  // Random pra pegar cartas aleatórias
+        
+        CartaBaralho [] maoJogador1 = jogador1.getMao();
+        CartaBaralho [] maoJogador2 = jogador2.getMao();
+        
+        //atribuindo as mãos de cada jogador
+        for (int i = 0 ; i < Jogador.cartasNoJogo ; i++){
+            maoJogador1[i] = baralho [ geradorAleatorio.nextInt(baralho.length)];
+            maoJogador2[i] = baralho [ geradorAleatorio.nextInt(baralho.length)];
+        }
+
+    }
+    
+    // Questão 5- c)
+    public void atualizaCartas(){
+        
+        CartaBaralho [] maoJogador1 = jogador1.getMao();
+        CartaBaralho [] maoJogador2 = jogador2.getMao();
+        
+        for(int i=0;i<Jogador.cartasNoJogo;i++){
+            cartasJogador1[i].setIcon(maoJogador1[i].getImagem());
+            cartasJogador2[i].setIcon(maoJogador2[i].getImagem());
+        }
+        jButton1.setIcon(maoJogador1[0].getImagem());
+        jButton2.setIcon(maoJogador1[1].getImagem());
+        jButton3.setIcon(maoJogador1[2].getImagem());
+        jButton4.setIcon(maoJogador1[3].getImagem());
+        jButton5.setIcon(maoJogador1[4].getImagem());
+        
+        // Jogador 2
+        jButton6.setIcon(maoJogador2[0].getImagem());
+        jButton7.setIcon(maoJogador2[1].getImagem());
+        jButton8.setIcon(maoJogador2[2].getImagem());
+        jButton9.setIcon(maoJogador2[3].getImagem());
+        jButton10.setIcon(maoJogador2[4].getImagem());
+        
+        pack();
+    }
+        
+    // Questão 6
+    private void contaPontos() {
+        for(int i=0;i<Jogador.cartasNoJogo;i++){
+            CartaBaralho cartaJogador1 = jogador1.getMao()[i];
+            CartaBaralho cartaJogador2 = jogador2.getMao()[i];
+            if(cartaJogador1.getCarta().getPontos() > cartaJogador2.getCarta().getPontos()){
+                jogador1.adicionarPontuacao(cartaJogador1, cartaJogador2);
+                cartasJogador1[i].setBackground(Color.BLUE);
+                cartasJogador2[i].setBackground(null);
+            }else if(cartaJogador1.getCarta().getPontos() < cartaJogador2.getCarta().getPontos()){
+                jogador2.adicionarPontuacao(cartaJogador1, cartaJogador2);
+                cartasJogador2[i].setBackground(Color.BLUE);
+                cartasJogador1[i].setBackground(null);
+            }else{
+                cartasJogador1[i].setBackground(null);
+                cartasJogador2[i].setBackground(null);
+            }
+        }
+    }
+    
+    void anunciaVencedor(){
+        if(jogador1.getPontos() > jogador2.getPontos()){
+            JOptionPane.showMessageDialog(this, jogador1.getNome() + " venceu!");
+            atualizaPlacar(true);
+        }else if(jogador1.getPontos() < jogador2.getPontos()){
+            JOptionPane.showMessageDialog(this, jogador2.getNome() + " venceu!");
+            atualizaPlacar(false);
+        }else
+            JOptionPane.showMessageDialog(this, jogador1.getNome() + " e " + jogador2.getNome() + "empataram!");
+    }
+    
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jButton13 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Casa");
+        jPanel3.add(jLabel1);
+
+        jButton12.setText("0");
+        jPanel3.add(jButton12);
+
+        jLabel3.setText("Jogador");
+        jPanel3.add(jLabel3);
+
+        jButton13.setText("0");
+        jPanel3.add(jButton13);
+
+        getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
+        jButton11.setText("Novo jogo");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton11);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
+
+        jPanel2.setLayout(new java.awt.GridLayout(2, 5));
+
+        jButton1.setText("jButton1");
+        jPanel2.add(jButton1);
+
+        jButton2.setText("jButton2");
+        jPanel2.add(jButton2);
+
+        jButton3.setText("jButton3");
+        jPanel2.add(jButton3);
+
+        jButton4.setText("jButton4");
+        jPanel2.add(jButton4);
+
+        jButton5.setText("jButton5");
+        jPanel2.add(jButton5);
+
+        jButton6.setText("jButton6");
+        jPanel2.add(jButton6);
+
+        jButton7.setText("jButton7");
+        jPanel2.add(jButton7);
+
+        jButton8.setText("jButton8");
+        jPanel2.add(jButton8);
+
+        jButton9.setText("jButton9");
+        jPanel2.add(jButton9);
+
+        jButton10.setText("jButton10");
+        jPanel2.add(jButton10);
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        //Questao Extra - 01
+        geraNovaMao();
+        atualizaCartas();
+        contaPontos();
+        anunciaVencedor();
+    }//GEN-LAST:event_jButton11ActionPerformed
+    
+    public void atualizaPlacar(boolean jogador1Ganhou){
+        int atualJogador1 = Integer.parseInt(jButton12.getText());
+        int atualJogador2 = Integer.parseInt(jButton13.getText());
+        if(jogador1Ganhou)
+            jButton12.setText(Integer.toString(atualJogador1+1));
+        else
+            jButton13.setText(Integer.toString(atualJogador2+1));
+        jogador1.setPontos(0);
+        jogador2.setPontos(0);
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Jogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Jogo().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    // End of variables declaration//GEN-END:variables
+
+
+}
