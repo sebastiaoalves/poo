@@ -28,7 +28,7 @@ public class Questao0215 {
 		
 		System.out.println("O quociente dos números é " + ((double)numero1/numero2) );
 		
-		
+		entrada.close();
 	}
 
 }

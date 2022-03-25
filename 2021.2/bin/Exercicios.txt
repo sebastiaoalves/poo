@@ -1,4 +1,0 @@
-2.26
-
-(Múltiplos) Escreva um aplicativo que leia dois inteiros, além de determinar se o primeiro é um múltiplo do segundo e imprimir o resul-
-tado. [Dica: utilize o operador de resto.]

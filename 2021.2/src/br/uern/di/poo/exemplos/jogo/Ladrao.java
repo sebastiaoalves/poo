@@ -19,6 +19,7 @@ public class Ladrao extends Personagem {
 		
 		bilboBaggins.setNivel(1);
 		bilboBaggins.getMaxPontosDeVida();
+		entrada.close();
 		
 	}
 
