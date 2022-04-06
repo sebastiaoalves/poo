@@ -1,6 +1,9 @@
-package br.uern.di.poo.exemplos.jogo;
+package br.uern.di.poo.exemplos.jogo.personagens;
 
-public final class Mago extends Personagem {
+import br.uern.di.poo.exemplos.jogo.excecoes.MagicCastException;
+import br.uern.di.poo.exemplos.jogo.magias.Magia;
+
+public final class Mago extends Personagem implements Conjurador{
 	
 	private int mana;
 	
@@ -37,6 +40,14 @@ public final class Mago extends Personagem {
 	@Override
 	public int getPontosDefesa() {
 		return getInteligencia()/3 + getAgilidade()/3;
+	}
+
+	@Override
+	public void lancaMagia(Magia magia, Personagem personagem) {
+		if(this.mana < magia.getManaNecessario() || 
+				this.getNivel() < magia.getNivel())
+			throw new MagicCastException(magia, "Personagem com mana ou nível insuficiente");
+		System.out.println("Lançou a magia " + magia.getNome());
 	}
 
 	

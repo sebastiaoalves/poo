@@ -1,4 +1,6 @@
-package br.uern.di.poo.exemplos.jogo;
+package br.uern.di.poo.exemplos.jogo.personagens;
+
+import br.uern.di.poo.exemplos.jogo.excecoes.IllegalAttributeException;
 
 public abstract class Personagem {
 	
@@ -58,7 +60,7 @@ public abstract class Personagem {
 	/**
 	 * @param nivel the nivel to set
 	 */
-	protected final void setNivel(int nivel) {
+	public final void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
 
@@ -72,8 +74,11 @@ public abstract class Personagem {
 	/**
 	 * @param forca the forca to set
 	 */
-	void setForca(int forca) {
-		this.forca = forca;
+	public void setForca(int forca) throws IllegalAttributeException {
+		if (forca>=1 && forca<=20)
+			this.forca = forca;
+		else
+			throw new IllegalAttributeException(forca, "Força");
 	}
 
 	/**

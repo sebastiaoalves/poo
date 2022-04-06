@@ -1,4 +1,4 @@
-package br.uern.di.poo.exemplos.jogo;
+package br.uern.di.poo.exemplos.jogo.personagens;
 
 public class Guerreiro extends Personagem {
 	
