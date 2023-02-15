@@ -1,25 +1,21 @@
 package br.uern.di.poo.sebastiao.folhadepagamento;
 
-public class Funcionario {
+public abstract class Funcionario {
+	
+	public static final double SALARIO_MINIMO = 1302.0;
 	
 	private String nome, email, telefone;
-	private double salario;
 	
 	public Funcionario(String nome, String email, String telefone) {
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
-		this.salario = 0.0;
 	}
 	
 	public double getSalario() {
-		return salario;
+		return 0.0;
 	}
 	
-	public void setSalario(double salario) {
-		this.salario = salario;		
-	}
-
 	public String getNome() {
 		return nome;
 	}
