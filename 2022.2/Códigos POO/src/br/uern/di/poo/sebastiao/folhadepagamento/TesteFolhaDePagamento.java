@@ -1,7 +1,5 @@
 package br.uern.di.poo.sebastiao.folhadepagamento;
 
-import java.util.Arrays;
-
 public class TesteFolhaDePagamento {
 
 	public static void main(String[] args) {
@@ -16,17 +14,19 @@ public class TesteFolhaDePagamento {
 				"não informado", equipe1);
 		Limpeza limpeza1 = new Limpeza("Maria", "maria@maria.com", "");
 		
-		Funcionario equipe [] = {v1, gerente1, limpeza1, v2};
-		double totalFolhaDePagamento = 0.0;
-		for(Funcionario f:equipe)
-			totalFolhaDePagamento += f.getSalario();
-		System.out.println("O total da folha de pagamento é R$" + totalFolhaDePagamento);
-
-		Arrays.sort(equipe);
+		Estagiario estagiario1 = new Estagiario("Sofredor da Silva",
+				"sofredor@uern.br", "888888", "Ciência da Computação");
 		
-		for(Funcionario f:equipe)
-			System.out.println(f.getNome() + " " + f.getSalario());
-
+		Pagavel equipe [] = {gerente1, v1, limpeza1, v2, estagiario1 };
+		double totalFolhaDePagamento = 0.0;
+		for(Pagavel p:equipe)
+			totalFolhaDePagamento += p.getSalario();
+		System.out.println("O total da folha de pagamento é R$" + totalFolhaDePagamento);
+		
+		for(Pagavel f:equipe)
+			System.out.println("Nome: " + ((Pessoa) f).getNome() + 
+					". Salário: " + f.getSalario());		
+		
 	}
 
 }
