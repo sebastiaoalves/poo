@@ -17,7 +17,7 @@ public class TesteFolhaDePagamento {
 		Estagiario estagiario1 = new Estagiario("Sofredor da Silva",
 				"sofredor@uern.br", "888888", "Ciência da Computação");
 		
-		Pagavel equipe [] = {gerente1, v1, limpeza1, v2, estagiario1 };
+		Pagavel equipe [] = {gerente1, v1, limpeza1, v2, estagiario1, null };
 		double totalFolhaDePagamento = 0.0;
 		for(Pagavel p:equipe)
 			totalFolhaDePagamento += p.getSalario();
